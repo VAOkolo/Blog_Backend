@@ -1,4 +1,3 @@
-// @ts-nocheck
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -7,23 +6,24 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+//maybe we could put this in a separate file
+const uniqid = require("uniqid");
+
 const port = process.env.PORT || 5001;
 const data = require("./data/posts.json");
-
 //file system essentials
 const fs = require("fs");
 
 app.listen(port, () => {
   console.log(`listening at port ${port}`);
-//   readPosts();
 });
 
 //muse posts requests
 //get all posts
 app.get("/posts", (req, res) => {
-  console.log("test");
   res.send(data);
 });
+
 //get specific post
 app.get("/posts/:post", (req, res) => {
   const post = parseInt(req.params.post);
@@ -32,28 +32,49 @@ app.get("/posts/:post", (req, res) => {
   });
   res.send(selectedPost[0]);
 });
-//post specific post
-app.post("posts/post", (req, res) => {
+
+//post new entry
+
+app.post("/posts/post", (req, res) => {
   const data = req.body;
 
-  writePosts(data);
+  readPosts(data);
+
+  //!! we need to send something back to the frontend when we do this, so we can just send the data back
+  res.status(201).send(data);
 });
 
 //muse comment requests
 //get all comments from parent post
-app.get("posts/:post/comments", (req, res) => {});
+app.get("/posts/:post/comments", (req, res) => {});
 //posting a comment
-app.post("posts/:post/:comment", (req, res) => {});
+
+app.post("/posts/:post/comment", (req, res) => {
+  //!!stopped making :comment programatically as we wouldn't need to use it, because the id is generated here
+  const {
+    body: { content },
+    params: { post },
+  } = req;
+
+  const newComment = {
+    id: uniqid(),
+    content,
+    created: new Date(),
+  };
+
+  addNewComment(newComment, post);
+
+  res.status(201).send(newComment);
+});
 
 //put request
 app.put("/posts/:post/reactions", (req, res) => {});
 
 function readPosts(newPost) {
-    // let data = fs.readFileSync("./data/posts.json")  
-    // data = JSON.parse(data);
-    let allData;
-    // read all files
-    fs.readFile("./data/posts.json", (err, fileData) => {
+  let allData;
+
+  // read all files
+  fs.readFile("./data/posts.json", (err, fileData) => {
     if (err) {
       console.log(err);
     }
@@ -61,55 +82,53 @@ function readPosts(newPost) {
     console.log(allData);
     // push new entry into array
     allData = [...allData, newPost];
-    console.log(allData);
     // write data to file
-     fs.writeFile("./data/test.json",
-    JSON.stringify(allData, null, 2),
-    (err) => {
-    if (err) {
-    console.log(err);
+    fs.writeFile(
+      "./data/posts.json",
+      JSON.stringify(allData, null, 2),
+      (err) => {
+        if (err) {
+          console.log(err);
         }
-    });
+      }
+    );
   });
+
+  return allData;
 }
 
-//   calling readPosts function
-readPosts({
-  id: 4,
-  content: "user input",
-  giphy: [
-    {
-      id: "003",
-      source: "url",
-    },
-  ],
-  created: "02/06/2022",
-  reactions: [
-    {
-      heart: 0,
-      like: 5,
-      dislike: 2,
-    },
-  ],
-  comments: [
-    {
-      id: "001",
-      content: "user input",
-      giphy: [
-        {
-          id: "003",
-          source: "url",
-        },
-      ],
-      created: "02/06/2022",
-      reactions: [
-        {
-          heart: 0,
-          like: 5,
-          dislike: 2,
-        },
-      ],
-    },
-  ],
-});
+// should change "test" for "posts" at given time
+function addNewComment(newComment, post) {
+  fs.readFile("./data/test.json", (err, fileData) => {
+    if (err) {
+      console.log(err);
+    }
 
+    let dataToUpdate = JSON.parse(fileData);
+
+    let selectedPost = dataToUpdate.filter((hostPost) => {
+      return hostPost.id == post;
+    })[0];
+
+    const indexOfSelectedPost = dataToUpdate.indexOf(selectedPost);
+
+    const updatedArray = [
+      ...dataToUpdate.slice(0, indexOfSelectedPost),
+      {
+        // here update data value
+        ...dataToUpdate[indexOfSelectedPost],
+        ["comments"]: [...selectedPost.comments, newComment],
+      },
+      ...dataToUpdate.slice(indexOfSelectedPost + 1),
+    ];
+    fs.writeFile(
+      "./data/test.json",
+      JSON.stringify(updatedArray, null, 2),
+      (err) => {
+        if (err) {
+          console.log(err);
+        }
+      }
+    );
+  });
+}

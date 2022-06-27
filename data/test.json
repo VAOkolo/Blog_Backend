@@ -20,20 +20,12 @@
       {
         "id": "001",
         "content": "user input",
-        "giphy": [
-          {
-            "id": "003",
-            "source": "url"
-          }
-        ],
-        "created": "02/06/2022",
-        "reactions": [
-          {
-            "heart": 0,
-            "like": 5,
-            "dislike": 2
-          }
-        ]
+        "created": "02/06/2022"
+      },
+      {
+        "id": "174akl4x5vu7y",
+        "content": "florencia, try again",
+        "created": "2022-06-27T19:57:22.749Z"
       }
     ]
   },
@@ -58,20 +50,7 @@
       {
         "id": "001",
         "content": "user input",
-        "giphy": [
-          {
-            "id": "003",
-            "source": "url"
-          }
-        ],
-        "created": "02/06/2022",
-        "reactions": [
-          {
-            "heart": 0,
-            "like": 5,
-            "dislike": 2
-          }
-        ]
+        "created": "02/06/2022"
       }
     ]
   },
@@ -96,25 +75,17 @@
       {
         "id": "001",
         "content": "user input",
-        "giphy": [
-          {
-            "id": "003",
-            "source": "url"
-          }
-        ],
-        "created": "02/06/2022",
-        "reactions": [
-          {
-            "heart": 0,
-            "like": 5,
-            "dislike": 2
-          }
-        ]
+        "created": "02/06/2022"
+      },
+      {
+        "id": "177pkl4x6h6bg",
+        "content": "can you believe this actually works??",
+        "created": "2022-06-27T20:13:58.203Z"
       }
     ]
   },
   {
-    "id": 4,
+    "id": 11,
     "content": "user input",
     "giphy": [
       {
@@ -134,20 +105,7 @@
       {
         "id": "001",
         "content": "user input",
-        "giphy": [
-          {
-            "id": "003",
-            "source": "url"
-          }
-        ],
-        "created": "02/06/2022",
-        "reactions": [
-          {
-            "heart": 0,
-            "like": 5,
-            "dislike": 2
-          }
-        ]
+        "created": "02/06/2022"
       }
     ]
   }
