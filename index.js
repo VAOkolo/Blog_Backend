@@ -15,7 +15,7 @@ const fs = require("fs");
 
 app.listen(port, () => {
   console.log(`listening at port ${port}`);
-  readPosts();
+//   readPosts();
 });
 
 //muse posts requests
@@ -48,45 +48,33 @@ app.post("posts/:post/:comment", (req, res) => {});
 //put request
 app.put("/posts/:post/reactions", (req, res) => {});
 
-function readPosts() {
-  let data = fs.readFile("./data/posts.json", (err, fileData) => {
+function readPosts(newPost) {
+    // let data = fs.readFileSync("./data/posts.json")  
+    // data = JSON.parse(data);
+    let allData;
+    // read all files
+    fs.readFile("./data/posts.json", (err, fileData) => {
     if (err) {
       console.log(err);
     }
-    let readData = JSON.parse(fileData);
-    console.log(readData);
-    return readData;
-  });
-
-  return data;
-}
-
-//add posts
-function writePosts(newData) {
-  //1. read data,
-  //2. grab what we will modify
-  //3. write the file
-
-  const getPosts = readPosts();
-
-  //   const newPost = getPosts.push(newData);
-  console.log(typeof getPosts);
-  console.log(newPost);
-
-  fs.writeFile(
-    "./data/test.json",
-    JSON.stringify(dummyData, null, 2),
+    allData = JSON.parse(fileData);
+    console.log(allData);
+    // push new entry into array
+    allData = [...allData, newPost];
+    console.log(allData);
+    // write data to file
+     fs.writeFile("./data/test.json",
+    JSON.stringify(allData, null, 2),
     (err) => {
-      if (err) {
-        console.log("its working");
-      }
-
-      console.log("The file was saved!");
-    }
-  );
+    if (err) {
+    console.log(err);
+        }
+    });
+  });
 }
 
-writePosts({
+//   calling readPosts function
+readPosts({
   id: 4,
   content: "user input",
   giphy: [
@@ -125,4 +113,3 @@ writePosts({
   ],
 });
 
-//update posts
