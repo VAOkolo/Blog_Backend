@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 const data = require("./data/posts.json");
 
 //file system essentials
@@ -33,20 +33,43 @@ app.get("/posts/:post", (req, res) => {
   res.send(selectedPost[0]);
 });
 //post specific post
-app.post("posts/post", (req, res) => {
+app.post("/posts/post", (req, res) => {
   const data = req.body;
 
-  writePosts(data);
+  readPosts(data);
 });
 
 //muse comment requests
 //get all comments from parent post
-app.get("posts/:post/comments", (req, res) => {});
+app.get("/posts/:post/comments", (req, res) => {
+    const post = parseInt(req.params.post);
+    const selectedPost = data.filter((hostPost) => {
+      return hostPost.id == post;
+    });
+    // console.log(selectedPost[0].comments);
+    res.send(selectedPost[0].comments);
+});
+//get specific comment - likely to turn into delete if used as stretch goal
+app.get("/posts/:post/comments/:comment", (req, res) => {
+    const post = parseInt(req.params.post);
+    const comment = parseInt(req.params.comment);
+    // console.log(data[0].comments[0].id);
+    const selectedPost = data.filter((hostPost) => {
+      return hostPost.id == post;
+    });
+    const selectedComments = data.filter((hostComment) => {
+
+    })
+    console.log(selectedPost);
+    res.send(selectedPost);
+});
 //posting a comment
 app.post("posts/:post/:comment", (req, res) => {});
 
 //put request
-app.put("/posts/:post/reactions", (req, res) => {});
+app.put("/posts/:post/reactions", (req, res) => {
+
+});
 
 function readPosts(newPost) {
     // let data = fs.readFileSync("./data/posts.json")  
@@ -74,42 +97,42 @@ function readPosts(newPost) {
 }
 
 //   calling readPosts function
-readPosts({
-  id: 4,
-  content: "user input",
-  giphy: [
-    {
-      id: "003",
-      source: "url",
-    },
-  ],
-  created: "02/06/2022",
-  reactions: [
-    {
-      heart: 0,
-      like: 5,
-      dislike: 2,
-    },
-  ],
-  comments: [
-    {
-      id: "001",
-      content: "user input",
-      giphy: [
-        {
-          id: "003",
-          source: "url",
-        },
-      ],
-      created: "02/06/2022",
-      reactions: [
-        {
-          heart: 0,
-          like: 5,
-          dislike: 2,
-        },
-      ],
-    },
-  ],
-});
+// readPosts({
+//   id: 4,
+//   content: "user input",
+//   giphy: [
+//     {
+//       id: "003",
+//       source: "url",
+//     },
+//   ],
+//   created: "02/06/2022",
+//   reactions: [
+//     {
+//       heart: 0,
+//       like: 5,
+//       dislike: 2,
+//     },
+//   ],
+//   comments: [
+//     {
+//       id: "001",
+//       content: "user input",
+//       giphy: [
+//         {
+//           id: "003",
+//           source: "url",
+//         },
+//       ],
+//       created: "02/06/2022",
+//       reactions: [
+//         {
+//           heart: 0,
+//           like: 5,
+//           dislike: 2,
+//         },
+//       ],
+//     },
+//   ],
+// });
 
