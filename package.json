@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/VAOkolo/Blog_Backend#readme",
   "dependencies": {
+    "@types/node": "^18.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1"

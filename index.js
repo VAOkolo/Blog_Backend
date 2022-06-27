@@ -14,6 +14,7 @@ const fs = require('fs');
 
 app.listen(port, () => {
     console.log(`listening at port ${port}`)
+    readPosts();
 })
 
 //muse posts requests 
@@ -31,38 +32,9 @@ app.get('/posts/:post', (req, res) => {
     res.send(selectedPost[0]);
 })
 //post specific post
-app.post('posts/:post', (req, res) => {
+app.post('posts/post', (req, res) => {
     const data = req.body;
-    const newPost = (data) => {
-        return { 
-            "id": 4,
-            "content": "user input",
-            "giphy": [{
-                "id": "003",
-                "source": "url"
-            }],
-            "created": "02/06/2022",
-            "reactions": [{
-                "heart": 0,
-                "like": 5,
-                "dislike": 2
-            }],
-            "comments": [{
-                "id": "001",
-                "content": "user input",
-                "giphy": [{
-                    "id": "003",
-                    "source": "url"
-                }],
-                "created": "02/06/2022",
-                "reactions": [{
-                    "heart": 0,
-                    "like": 5,
-                    "dislike": 2
-                }]
-            }]
-        }}
-        res.send(newPost(data));
+    
     })
 
 //muse comment requests 
@@ -79,5 +51,18 @@ app.post('posts/:post/:comment', (req, res) => {
 app.put('/posts/:post/reactions', (req, res) => {
 
 })
+
+function readPosts(){
+    let data = fs.readFile('./data/posts.json', (err, fileData) => {
+        if(err){
+            console.log(err);
+        } 
+        let readData = JSON.parse(fileData);
+        console.log(readData);
+        return readData;
+    });
+
+    return data;
+}
 
 
