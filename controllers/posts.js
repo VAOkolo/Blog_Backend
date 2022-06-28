@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const uniqid = require("uniqid");
-const {readPosts, addNewComment} = require("../models/functions")
+const {readPosts, addNewComment, updateReactions} = require("../models/functions")
 const data = require('../data/posts.json')
 
   //muse posts requests
@@ -75,10 +75,20 @@ const data = require('../data/posts.json')
   });
   
   //put request
-  router.put("/:post/reactions", (req, res) => {
-  //take body of request and write to sheet
-      const data = req.body;
-      console.log(data);
+  app.put("/posts/:post/reactions/:reaction", (req, res) => {
+    const {
+      body: { amount },
+      params: { post, reaction },
+    } = req;
+  
+    //will receive the post id and the reaction type (like, dislike, love)
+    //changed in test.json the "reactions" and turned the array into a simple object, changed "heart" for "love"
+    //we could either receive it through the body,or just add it to the path, i'm gonna try doing it like this for now
+    // within our route we will update the data with the amount of reactions sent. we will add it to the existing amount from here
+  
+    updateReactions(reaction, post, amount);
+    //if we could manage to read the file and save it to "data", we could send here the updated data back and so they can use it to update the frontend
+    res.status(200).send(amount);
   });
 
 
