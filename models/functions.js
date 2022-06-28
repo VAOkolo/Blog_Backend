@@ -1,12 +1,12 @@
 const fs = require("fs");
-const data = require("../data/posts.json");
+// const data = require("../data/posts.json");
 
 //functions for reading posts and adding new comments
 function readPosts(newPost) {
     let allData;
   
     // read all files
-    fs.readFile(data, (err, fileData) => {
+    fs.readFile("./data/posts.json", (err, fileData) => {
       if (err) {
         console.log(err);
       }
@@ -14,9 +14,9 @@ function readPosts(newPost) {
       console.log(allData);
       // push new entry into array
       allData = [...allData, newPost];
-      // write data to file
+    //   write data to file
       fs.writeFile(
-        data,
+        "./data/posts.json",
         JSON.stringify(allData, null, 2),
         (err) => {
           if (err) {
@@ -24,6 +24,7 @@ function readPosts(newPost) {
           }
         }
       );
+    console.log(allData);
     });
   
     return allData;
@@ -31,7 +32,7 @@ function readPosts(newPost) {
   
   // should change "test" for "posts" at given time
   function addNewComment(newComment, post) {
-    fs.readFile(data, (err, fileData) => {
+    fs.readFile("./data/posts.json", (err, fileData) => {
       if (err) {
         console.log(err);
       }
@@ -54,7 +55,7 @@ function readPosts(newPost) {
         ...dataToUpdate.slice(indexOfSelectedPost + 1),
       ];
       fs.writeFile(
-        data,
+        "./data/posts.json",
         JSON.stringify(updatedArray, null, 2),
         (err) => {
           if (err) {

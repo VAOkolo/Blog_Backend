@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const uniqid = require("uniqid");
-const models = require("../models/functions")
+const {readPosts, addNewComment} = require("../models/functions")
 const data = require('../data/posts.json')
 
   //muse posts requests
@@ -22,7 +22,7 @@ const data = require('../data/posts.json')
   //post new entry
   router.post("/post", (req, res) => {
     const data = req.body;
-  
+    
     readPosts(data);
   
     //!! we need to send something back to the frontend when we do this, so we can just send the data back
