@@ -75,7 +75,7 @@ const data = require('../data/posts.json')
   });
   
   //put request
-  app.put("/posts/:post/reactions/:reaction", (req, res) => {
+  router.put(":post/reactions/:reaction", (req, res) => {
     const {
       body: { amount },
       params: { post, reaction },
