@@ -66,4 +66,44 @@ function readPosts(newPost) {
     });
   }
 
-  module.exports = {readPosts, addNewComment}
+  function updateReactions(reaction, post, amount) {
+    fs.readFile("./data/test.json", (err, data) => {
+      if (err) {
+        console.error(err);
+      }
+      let dataToUpdate = JSON.parse(data);
+  
+      const selectedPost = dataToUpdate.filter((hostPost) => {
+        return hostPost.id == post;
+      })[0];
+      console.log(selectedPost.reactions[reaction]);
+  
+      const indexOfSelectedPost = dataToUpdate.indexOf(selectedPost);
+  
+      const updatedArray = [
+        ...dataToUpdate.slice(0, indexOfSelectedPost),
+        {
+          // here update data value
+          //* handle error => what happens if the post doesn't exist? - maybe won't be necessary as this would never happen??
+          ...dataToUpdate[indexOfSelectedPost],
+          ["reactions"]: {
+            ...selectedPost.reactions,
+            [reaction]: selectedPost.reactions[reaction] + amount,
+          },
+        },
+        ...dataToUpdate.slice(indexOfSelectedPost + 1),
+      ];
+  
+      fs.writeFile(
+        "./data/test.json",
+        JSON.stringify(updatedArray, null, 2),
+        (err) => {
+          if (err) {
+            console.log(err);
+          }
+        }
+      );
+    });
+  }
+
+  module.exports = {readPosts, addNewComment, updateReactions}
