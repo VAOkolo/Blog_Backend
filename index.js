@@ -57,18 +57,23 @@ app.get("/posts/:post/comments/:comment", (req, res) => {
     const selectedPost = data.filter((hostPost) => {
       return hostPost.id == post;
     });
-    const selectedComments = data.filter((hostComment) => {
+    console.log(selectedPost[0].comments);
+    // res.send(selectedPost);
 
+    const selectedComment = selectedPost[0].comments.filter((hostComment) => {
+        return hostComment.id == comment;
     })
-    console.log(selectedPost);
-    res.send(selectedPost);
+    console.log(selectedComment);
+    res.send(selectedComment);
 });
 //posting a comment
 app.post("posts/:post/:comment", (req, res) => {});
 
 //put request
 app.put("/posts/:post/reactions", (req, res) => {
-
+//take body of request and write to sheet
+    const data = req.body;
+    console.log(data);
 });
 
 function readPosts(newPost) {
