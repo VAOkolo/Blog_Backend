@@ -9,13 +9,11 @@
       }
     ],
     "created": "02/06/2022",
-    "reactions": [
-      {
-        "heart": 0,
-        "like": 5,
-        "dislike": 2
-      }
-    ],
+    "reactions": {
+      "love": 0,
+      "like": 85,
+      "dislike": 26
+    },
     "comments": [
       {
         "id": "001",
@@ -39,13 +37,11 @@
       }
     ],
     "created": "02/06/2022",
-    "reactions": [
-      {
-        "heart": 0,
-        "like": 5,
-        "dislike": 2
-      }
-    ],
+    "reactions": {
+      "love": 0,
+      "like": 5,
+      "dislike": 2
+    },
     "comments": [
       {
         "id": "001",
@@ -64,13 +60,11 @@
       }
     ],
     "created": "02/06/2022",
-    "reactions": [
-      {
-        "heart": 0,
-        "like": 5,
-        "dislike": 2
-      }
-    ],
+    "reactions": {
+      "love": 0,
+      "like": 5,
+      "dislike": 2
+    },
     "comments": [
       {
         "id": "001",
@@ -81,6 +75,11 @@
         "id": "177pkl4x6h6bg",
         "content": "can you believe this actually works??",
         "created": "2022-06-27T20:13:58.203Z"
+      },
+      {
+        "id": "17o7ol4xxv1e2",
+        "content": "testing on 28.06.22",
+        "created": "2022-06-28T09:00:34.633Z"
       }
     ]
   },
@@ -94,13 +93,11 @@
       }
     ],
     "created": "02/06/2022",
-    "reactions": [
-      {
-        "heart": 0,
-        "like": 5,
-        "dislike": 2
-      }
-    ],
+    "reactions": {
+      "love": 0,
+      "like": 5,
+      "dislike": 2
+    },
     "comments": [
       {
         "id": "001",

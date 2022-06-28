@@ -40,7 +40,6 @@ app.post("/posts/post", (req, res) => {
 
   readPosts(data);
 
-  //!! we need to send something back to the frontend when we do this, so we can just send the data back
   res.status(201).send(data);
 });
 
@@ -50,7 +49,6 @@ app.get("/posts/:post/comments", (req, res) => {});
 //posting a comment
 
 app.post("/posts/:post/comment", (req, res) => {
-  //!!stopped making :comment programatically as we wouldn't need to use it, because the id is generated here
   const {
     body: { content },
     params: { post },
@@ -68,7 +66,21 @@ app.post("/posts/:post/comment", (req, res) => {
 });
 
 //put request
-app.put("/posts/:post/reactions", (req, res) => {});
+app.put("/posts/:post/reactions/:reaction", (req, res) => {
+  const {
+    body: { amount },
+    params: { post, reaction },
+  } = req;
+
+  //will receive the post id and the reaction type (like, dislike, love)
+  //changed in test.json the "reactions" and turned the array into a simple object, changed "heart" for "love"
+  //we could either receive it through the body,or just add it to the path, i'm gonna try doing it like this for now
+  // within our route we will update the data with the amount of reactions sent. we will add it to the existing amount from here
+
+  updateReactions(reaction, post, amount);
+  //if we could manage to read the file and save it to "data", we could send here the updated data back and so they can use it to update the frontend
+  res.status(200).send(amount);
+});
 
 function readPosts(newPost) {
   let allData;
@@ -106,6 +118,7 @@ function addNewComment(newComment, post) {
 
     let dataToUpdate = JSON.parse(fileData);
 
+    //as this is being constantly reused, maybe throw inside file called "helpers"? or inside a model of post??
     let selectedPost = dataToUpdate.filter((hostPost) => {
       return hostPost.id == post;
     })[0];
@@ -115,12 +128,52 @@ function addNewComment(newComment, post) {
     const updatedArray = [
       ...dataToUpdate.slice(0, indexOfSelectedPost),
       {
-        // here update data value
+        // handle error => what happens if the post doesn't exist? - maybe won't be necessary as this would never happen??
         ...dataToUpdate[indexOfSelectedPost],
         ["comments"]: [...selectedPost.comments, newComment],
       },
       ...dataToUpdate.slice(indexOfSelectedPost + 1),
     ];
+    fs.writeFile(
+      "./data/test.json",
+      JSON.stringify(updatedArray, null, 2),
+      (err) => {
+        if (err) {
+          console.log(err);
+        }
+      }
+    );
+  });
+}
+
+function updateReactions(reaction, post, amount) {
+  fs.readFile("./data/test.json", (err, data) => {
+    if (err) {
+      console.error(err);
+    }
+    let dataToUpdate = JSON.parse(data);
+
+    const selectedPost = dataToUpdate.filter((hostPost) => {
+      return hostPost.id == post;
+    })[0];
+    console.log(selectedPost.reactions[reaction]);
+
+    const indexOfSelectedPost = dataToUpdate.indexOf(selectedPost);
+
+    const updatedArray = [
+      ...dataToUpdate.slice(0, indexOfSelectedPost),
+      {
+        // here update data value
+        //* handle error => what happens if the post doesn't exist? - maybe won't be necessary as this would never happen??
+        ...dataToUpdate[indexOfSelectedPost],
+        ["reactions"]: {
+          ...selectedPost.reactions,
+          [reaction]: selectedPost.reactions[reaction] + amount,
+        },
+      },
+      ...dataToUpdate.slice(indexOfSelectedPost + 1),
+    ];
+
     fs.writeFile(
       "./data/test.json",
       JSON.stringify(updatedArray, null, 2),
