@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 const uniqid = require("uniqid");
 
 const port = process.env.PORT || 5001;
-const data = require("./data/posts.json");
+const data = require("./data/test.json");
 //file system essentials
 const fs = require("fs");
 
@@ -21,6 +21,7 @@ app.listen(port, () => {
 //muse posts requests
 //get all posts
 app.get("/posts", (req, res) => {
+  console.log(data);
   res.send(data);
 });
 
@@ -45,7 +46,13 @@ app.post("/posts/post", (req, res) => {
 
 //muse comment requests
 //get all comments from parent post
-app.get("/posts/:post/comments", (req, res) => {});
+app.get("/posts/:post/comments", (req, res) => {
+  const post = parseInt(req.params.post);
+  const selectedPost = data.filter((hostPost) => {
+    return hostPost.id == post;
+  });
+  res.send(selectedPost[0].comments);
+});
 //posting a comment
 
 app.post("/posts/:post/comment", (req, res) => {
@@ -76,15 +83,14 @@ app.put("/posts/:post/reactions/:reaction", (req, res) => {
   //changed in test.json the "reactions" and turned the array into a simple object, changed "heart" for "love"
   //we could either receive it through the body,or just add it to the path, i'm gonna try doing it like this for now
   // within our route we will update the data with the amount of reactions sent. we will add it to the existing amount from here
-
   updateReactions(reaction, post, amount);
   //if we could manage to read the file and save it to "data", we could send here the updated data back and so they can use it to update the frontend
-  res.status(200).send(amount);
+  //send back something better than this
+  res.status(200).send(req.body);
 });
 
 function readPosts(newPost) {
   let allData;
-
   // read all files
   fs.readFile("./data/posts.json", (err, fileData) => {
     if (err) {
@@ -156,7 +162,6 @@ function updateReactions(reaction, post, amount) {
     const selectedPost = dataToUpdate.filter((hostPost) => {
       return hostPost.id == post;
     })[0];
-    console.log(selectedPost.reactions[reaction]);
 
     const indexOfSelectedPost = dataToUpdate.indexOf(selectedPost);
 
@@ -185,3 +190,5 @@ function updateReactions(reaction, post, amount) {
     );
   });
 }
+
+module.exports = { app, port };
