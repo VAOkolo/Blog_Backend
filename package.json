@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
     "dev": "nodemon index.js",
+    "test": "jest --watchAll",
     "coverage": "jest --coverage --silent"
   },
   "repository": {

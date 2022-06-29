@@ -7,11 +7,13 @@ const {
   updateReactions,
 } = require("../models/functions");
 const data = require("../data/posts.json");
+const Post = require("../models/post");
 
 //muse posts requests
 //get all posts
 router.get("/", (req, res) => {
-  res.send(data);
+  const posts = Post.all;
+  res.send(posts);
 });
 
 //get specific post
@@ -25,22 +27,27 @@ router.get("/:post", (req, res) => {
 
 //post new entry
 router.post("/post", (req, res) => {
-  const data = req.body;
+  const {
+    body: { content, giphy },
+  } = req;
 
-  readPosts(data);
+  const newPost = Post.create(content, giphy);
 
-  // we need to send something back to the frontend when we do this, so we can just send the data back
-  res.status(201).send(data);
+  res.status(201).send(newPost);
 });
 
 //muse comment requests
 //get all comments from parent post
 router.get("/:post/comments", (req, res) => {
-  const post = parseInt(req.params.post);
+  const {
+    params: { post },
+  } = req;
+  // const post = parseInt(req.params.post);
   const selectedPost = data.filter((hostPost) => {
     return hostPost.id == post;
   });
   // console.log(selectedPost[0].comments);
+  Post.newComment();
   res.send(selectedPost[0].comments);
 });
 //get specific comment - likely to turn into delete if used as stretch goal
@@ -61,20 +68,25 @@ router.get("/:post/comments/:comment", (req, res) => {
 //posting a comment
 
 router.post("/:post/comment", (req, res) => {
-  //stopped making :comment programatically as we wouldn't need to use it, because the id is generated here
+  //!!stopped making :comment programatically as we wouldn't need to use it, because the id is generated here
   const {
     body: { content },
     params: { post },
   } = req;
 
-  addNewComment(content, post);
-  console.log(addNewComment(content, post));
-  // what should we send the user back here??
-  res.status(201).send(content);
+  const newComment = {
+    id: uniqid(),
+    content,
+    created: new Date(),
+  };
+
+  addNewComment(newComment, post);
+
+  res.status(201).send(newComment);
 });
 
 //put request
-router.put(":post/reactions/:reaction", (req, res) => {
+router.put("/:post/reactions/:reaction", (req, res) => {
   const {
     body: { amount },
     params: { post, reaction },
