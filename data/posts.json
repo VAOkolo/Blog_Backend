@@ -47,5 +47,53 @@
         "created": "02/06/2022"
       }
     ]
+  },
+  {
+    "id": "17fncl4zs5qjt",
+    "content": "Add me, I'm new and I have a giphy",
+    "giphy": "some-url",
+    "created": "2022-06-29T15:56:28.456Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
+  },
+  {
+    "id": "17af4l4zs5vim",
+    "content": "Add me, I'm new and I have a giphy",
+    "giphy": "no-url",
+    "created": "2022-06-29T15:56:34.893Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
+  },
+  {
+    "id": "17gfkl4zs8lg2",
+    "content": "Last try to add comment",
+    "giphy": "",
+    "created": "2022-06-29T15:58:41.809Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
+  },
+  {
+    "id": "171sgl4zsbetq",
+    "content": "trying to add comment",
+    "giphy": "",
+    "created": "2022-06-29T16:00:53.197Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
   }
 ]

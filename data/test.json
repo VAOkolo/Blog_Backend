@@ -9,7 +9,18 @@
       "like": 5,
       "dislike": 8
     },
-    "comments": []
+    "comments": [
+      {
+        "id": "1764gl4zr9gw4",
+        "content": "bghfsgh",
+        "created": "2022-06-29T15:31:22.947Z"
+      },
+      {
+        "id": "17eool4zra7cn",
+        "content": "hello what",
+        "created": "2022-06-29T15:31:57.239Z"
+      }
+    ]
   },
   {
     "id": 2,

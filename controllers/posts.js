@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const data = require("../data/posts.json");
+
 const Post = require("../models/post");
 const Comment = require("../models/comment");
 
@@ -40,23 +40,20 @@ router.get("/:post/comments", (req, res) => {
     params: { post },
   } = req;
 
-  const comments = Comment.getComment(post);
+  const comments = Comment.getComments(post);
   res.status(200).send(comments);
 });
-//get specific comment - likely to turn into delete if used as stretch goal
-router.get("/:post/comments/:comment", (req, res) => {
-  const post = parseInt(req.params.post);
-  const comment = parseInt(req.params.comment);
-  // console.log(data[0].comments[0].id);
-  const selectedPost = data.filter((hostPost) => {
-    return hostPost.id == post;
-  });
 
-  const selectedComment = selectedPost[0].comments.filter((hostComment) => {
-    return hostComment.id == comment;
-  });
-  console.log(selectedComment);
-  res.send(selectedComment);
+//get specific comment
+
+router.get("/:post/comments/:comment", (req, res) => {
+  const {
+    params: { post, comment },
+  } = req;
+
+  const selectedComment = Comment.getComment(post, comment);
+
+  res.status(200).send(selectedComment);
 });
 //posting a comment
 
@@ -65,7 +62,6 @@ router.post("/:post/comment", (req, res) => {
     body: { content },
     params: { post },
   } = req;
-
   const newComment = Comment.create(content, post);
 
   res.status(201).send(newComment);
