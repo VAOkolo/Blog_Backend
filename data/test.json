@@ -38,6 +38,11 @@
         "id": "001",
         "content": "user input",
         "created": "02/06/2022"
+      },
+      {
+        "id": "002",
+        "content": "user input",
+        "created": "02/06/2022"
       }
     ]
   },
@@ -63,6 +68,17 @@
       "like": 3,
       "dislike": 6
     },
-    "comments": []
+    "comments": [
+      {
+        "id": "17a0gl4zo4jm7",
+        "content": "Ok, let's see if this works",
+        "created": "2022-06-29T14:03:34.350Z"
+      },
+      {
+        "id": "17g20l4zo5488",
+        "content": "Ok, let's see if this work once more",
+        "created": "2022-06-29T14:04:01.063Z"
+      }
+    ]
   }
 ]

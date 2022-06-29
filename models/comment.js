@@ -1,5 +1,6 @@
 const uniqid = require("uniqid");
-const { addNewComment } = require("../assets/helpers.js");
+const { selectedPost, addNewComment } = require("../assets/helpers.js");
+const posts = require("../data/test.json");
 
 class Comment {
   constructor({ id, content, created }) {
@@ -7,9 +8,13 @@ class Comment {
     this.content = content;
     this.created = created;
   }
+  static getComment(id) {
+    const { comments } = selectedPost(posts, id);
+    return comments && comments;
+  }
 
   static create(content, post) {
-    let newComment = {
+    const newComment = {
       id: uniqid(),
       content,
       created: new Date(),

@@ -81,7 +81,7 @@ function updateReactionsFn(reaction, post) {
         ...dataToUpdate[indexOfSelectedPost],
         ["reactions"]: {
           ...selectedP.reactions,
-          [reaction]: selectedP.reactions[reaction]+ 1,
+          [reaction]: selectedP.reactions[reaction] + 1,
         },
       },
       ...dataToUpdate.slice(indexOfSelectedPost + 1),

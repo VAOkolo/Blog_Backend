@@ -1,7 +1,6 @@
 const postsData = require("../data/test.json");
 const uniqid = require("uniqid");
-const fs = require("fs");
-const path = require("path");
+
 const {
   selectedPost,
   writePosts,
@@ -44,9 +43,8 @@ class Post {
     return newPost;
   }
 
-  static updateReactions(reaction, post, amount) {
-    // console.log("reaction: ", reaction, "post: ", post, "amount: ", amount);
-    return updateReactionsFn(reaction, post, amount);
+  static updateReactions(reaction, post) {
+    return updateReactionsFn(reaction, post);
   }
 }
 

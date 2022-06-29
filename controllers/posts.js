@@ -40,12 +40,8 @@ router.get("/:post/comments", (req, res) => {
     params: { post },
   } = req;
 
-  const selectedPost = data.filter((hostPost) => {
-    return hostPost.id == post;
-  });
-  // console.log(selectedPost[0].comments);
-  Post.newComment();
-  res.send(selectedPost[0].comments);
+  const comments = Comment.getComment(post);
+  res.status(200).send(comments);
 });
 //get specific comment - likely to turn into delete if used as stretch goal
 router.get("/:post/comments/:comment", (req, res) => {
