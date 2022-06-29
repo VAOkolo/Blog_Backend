@@ -5,7 +5,7 @@ const path = require("path");
 const {
   selectedPost,
   writePosts,
-  addNewComment,
+  updateReactionsFn,
 } = require("../assets/helpers.js");
 
 class Post {
@@ -44,7 +44,10 @@ class Post {
     return newPost;
   }
 
-  // static updateReaction() {}
+  static updateReactions(reaction, post, amount) {
+    // console.log("reaction: ", reaction, "post: ", post, "amount: ", amount);
+    return updateReactionsFn(reaction, post, amount);
+  }
 }
 
 module.exports = Post;

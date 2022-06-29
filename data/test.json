@@ -2,124 +2,34 @@
   {
     "id": 1,
     "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
+    "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "love": 24,
-      "like": 85,
-      "dislike": 26
+      "love": 0,
+      "like": 5,
+      "dislike": 8
     },
-    "comments": [
-      {
-        "id": "001",
-        "content": "user input",
-        "created": "02/06/2022"
-      },
-      {
-        "id": "174akl4x5vu7y",
-        "content": "florencia, try again",
-        "created": "2022-06-27T19:57:22.749Z"
-      }
-    ]
+    "comments": []
   },
   {
     "id": 2,
     "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
+    "giphy": "",
     "created": "02/06/2022",
     "reactions": {
       "love": 0,
       "like": 5,
-      "dislike": 2
+      "dislike": 14
     },
-    "comments": [
-      {
-        "id": "001",
-        "content": "user input",
-        "created": "02/06/2022"
-      }
-    ]
+    "comments": []
   },
   {
     "id": 3,
     "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
+    "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "love": 0,
-      "like": 5,
-      "dislike": 2
-    },
-    "comments": [
-      {
-        "id": "001",
-        "content": "user input",
-        "created": "02/06/2022"
-      },
-      {
-        "id": "177pkl4x6h6bg",
-        "content": "can you believe this actually works??",
-        "created": "2022-06-27T20:13:58.203Z"
-      },
-      {
-        "id": "177ggl4yoz24c",
-        "content": "i know, i know ",
-        "created": "2022-06-28T21:39:31.834Z"
-      },
-      {
-        "id": "171hsl4yozuwe",
-        "content": "i know, i know ",
-        "created": "2022-06-28T21:40:09.132Z"
-      },
-      {
-        "id": "177iol4yp0qyv",
-        "content": "i know, i know ",
-        "created": "2022-06-28T21:40:50.693Z"
-      },
-      {
-        "id": "17jxwl4yp4rwb",
-        "content": "i know, i know ",
-        "created": "2022-06-28T21:43:58.522Z"
-      },
-      {
-        "id": "177j0l4ypjv4k",
-        "content": "i know, i know ",
-        "created": "2022-06-28T21:55:42.546Z"
-      },
-      {
-        "id": "17gosl4ypph8h",
-        "content": "i know, i know ",
-        "created": "2022-06-28T22:00:04.479Z"
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
-    "created": "02/06/2022",
-    "reactions": {
-      "love": 0,
+      "love": 32,
       "like": 5,
       "dislike": 2
     },
@@ -132,12 +42,10 @@
     ]
   },
   {
-    "id": "17bawl4ysmkxo",
-    "content": "lastone",
-    "giphy": [
-      {}
-    ],
-    "created": "2022-06-28T23:21:48.155Z",
+    "id": "17bxcl4zkdxgc",
+    "content": "Add me, I'm new",
+    "giphy": "",
+    "created": "2022-06-29T12:18:53.723Z",
     "reactions": {
       "love": 0,
       "like": 0,
@@ -146,125 +54,14 @@
     "comments": []
   },
   {
-    "id": 1,
-    "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
-    "created": "02/06/2022",
+    "id": "17404l4zkeh2y",
+    "content": "Add me, I'm new and I have a giphy",
+    "giphy": "some-url",
+    "created": "2022-06-29T12:19:19.161Z",
     "reactions": {
-      "love": 24,
-      "like": 85,
-      "dislike": 26
-    },
-    "comments": [
-      {
-        "id": "001",
-        "content": "user input",
-        "created": "02/06/2022"
-      },
-      {
-        "id": "174akl4x5vu7y",
-        "content": "florencia, try again",
-        "created": "2022-06-27T19:57:22.749Z"
-      }
-    ]
-  },
-  {
-    "id": 123,
-    "content": "user input",
-    "giphy": [
-      {
-        "id": "003",
-        "source": "url"
-      }
-    ],
-    "created": "02/06/2022",
-    "reactions": {
-      "love": 24,
-      "like": 85,
-      "dislike": 26
-    },
-    "comments": []
-  },
-  {
-    "id": "17dp8l4zaal91",
-    "content": "I hope you are well",
-    "giphy": [
-      {}
-    ],
-    "created": "2022-06-29T07:36:21.780Z",
-    "reactions": {
-      "love": 0,
+      "love": 18,
       "like": 0,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "173sol4zac8lg",
-    "content": "Testing to see if it works with postman",
-    "giphy": [
-      {
-        "src": "whatever-url"
-      }
-    ],
-    "created": "2022-06-29T07:37:38.691Z",
-    "reactions": {
-      "love": 0,
-      "like": 0,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "17964l4zadicg",
-    "content": "Testing to see if it works with postman",
-    "giphy": [
-      {
-        "src": "whatever-url"
-      }
-    ],
-    "created": "2022-06-29T07:38:37.983Z",
-    "reactions": {
-      "love": 0,
-      "like": 0,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "174l4l4zakczc",
-    "content": "Testing to see if it works with postman 08:43am",
-    "giphy": [
-      {
-        "src": "changing-url"
-      }
-    ],
-    "created": "2022-06-29T07:43:57.623Z",
-    "reactions": {
-      "love": 0,
-      "like": 0,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "17edkl4zb5uad",
-    "content": "Testing to see if it works with postman 9:00am",
-    "giphy": [
-      {
-        "src": "changing-url"
-      }
-    ],
-    "created": "2022-06-29T08:00:39.828Z",
-    "reactions": {
-      "love": 0,
-      "like": 0,
-      "dislike": 0
+      "dislike": 6
     },
     "comments": []
   }
