@@ -1,4 +1,4 @@
-const postsData = require("../data/test.json");
+const postsData = require("../data/posts.json");
 const uniqid = require("uniqid");
 
 const {
