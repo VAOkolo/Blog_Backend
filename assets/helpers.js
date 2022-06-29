@@ -63,7 +63,7 @@ function addNewComment(newComment, post) {
   });
 }
 
-function updateReactionsFn(reaction, post, amount) {
+function updateReactionsFn(reaction, post) {
   fs.readFile("./data/test.json", (err, data) => {
     if (err) {
       console.error(err);
@@ -81,7 +81,7 @@ function updateReactionsFn(reaction, post, amount) {
         ...dataToUpdate[indexOfSelectedPost],
         ["reactions"]: {
           ...selectedP.reactions,
-          [reaction]: selectedP.reactions[reaction] + amount,
+          [reaction]: selectedP.reactions[reaction]+ 1,
         },
       },
       ...dataToUpdate.slice(indexOfSelectedPost + 1),

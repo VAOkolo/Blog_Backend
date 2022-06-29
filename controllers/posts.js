@@ -17,7 +17,6 @@ router.get("/:post", (req, res) => {
     params: { post },
   } = req;
 
-  // * the only thing i'm not happy about is will it still work if the post has been just added? maybe this is not even that important?
   const selectedPost = Post.findById(post);
 
   res.status(200).send(selectedPost);
@@ -79,11 +78,11 @@ router.post("/:post/comment", (req, res) => {
 //put request
 router.put("/:post/reactions/:reaction", (req, res) => {
   const {
-    body: { amount },
+    // body: { amount },
     params: { post, reaction },
   } = req;
 
-  Post.updateReactions(reaction, post, amount);
+  Post.updateReactions(reaction, post);
 
   res.status(200).send("Succesfully updated!");
 });
