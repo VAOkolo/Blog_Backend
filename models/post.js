@@ -23,9 +23,13 @@ class Post {
   }
 
   static findById(id) {
-    const postSelected = selectedPost(Post.all, id);
-
-    return postSelected;
+    try {
+      const postSelected = selectedPost(Post.all, id);
+      const post = new Post(postSelected);
+      return post;
+    } catch (err) {
+      throw new Error("Post not found");
+    }
   }
 
   static create(content, giphy = "") {

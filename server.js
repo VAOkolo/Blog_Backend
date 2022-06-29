@@ -14,4 +14,9 @@ app.get("/", (req, res) => {
   res.send("Muze API - use an applicable route for content");
 });
 
+//responds to invalid method request 
+app.post("/", (req, res) => {
+  res.status(405).send("Not allowd!");
+});
+
 module.exports = app;

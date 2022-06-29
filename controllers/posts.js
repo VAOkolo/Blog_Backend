@@ -13,13 +13,16 @@ router.get("/", (req, res) => {
 
 //get specific post
 router.get("/:post", (req, res) => {
-  const {
-    params: { post },
-  } = req;
-
-  const selectedPost = Post.findById(post);
-
-  res.status(200).send(selectedPost);
+  try {
+    const {
+      params: { post },
+    } = req;
+    const selectedPost = Post.findById(post);
+    res.send(selectedPost);
+  } catch (err) {
+    console.log(err);
+    res.status(404).send("Not found");
+  }
 });
 
 //post new entry
@@ -41,7 +44,7 @@ router.get("/:post/comments", (req, res) => {
   } = req;
 
   const comments = Comment.getComments(post);
-  res.status(200).send(comments);
+  res.send(comments);
 });
 
 //get specific comment
@@ -53,7 +56,7 @@ router.get("/:post/comments/:comment", (req, res) => {
 
   const selectedComment = Comment.getComment(post, comment);
 
-  res.status(200).send(selectedComment);
+  res.send(selectedComment);
 });
 //posting a comment
 
@@ -62,6 +65,7 @@ router.post("/:post/comment", (req, res) => {
     body: { content },
     params: { post },
   } = req;
+
   const newComment = Comment.create(content, post);
 
   res.status(201).send(newComment);
@@ -76,7 +80,7 @@ router.put("/:post/reactions/:reaction", (req, res) => {
 
   Post.updateReactions(reaction, post);
 
-  res.status(200).send("Succesfully updated!");
+  res.send("Succesfully updated!");
 });
 
 module.exports = router;
