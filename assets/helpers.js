@@ -31,7 +31,7 @@ function writePosts(newPost) {
 }
 
 function addNewComment(newComment, post) {
-  fs.readFile("./data/test.json", (err, fileData) => {
+  fs.readFile("./data/posts.json", (err, fileData) => {
     if (err) {
       console.log(err);
     }
@@ -52,7 +52,7 @@ function addNewComment(newComment, post) {
     ];
 
     fs.writeFile(
-      "./data/test.json",
+      "./data/posts.json",
       JSON.stringify(updatedArray, null, 2),
       (err) => {
         if (err) {
@@ -64,7 +64,7 @@ function addNewComment(newComment, post) {
 }
 
 function updateReactionsFn(reaction, post) {
-  fs.readFile("./data/test.json", (err, data) => {
+  fs.readFile("./data/posts.json", (err, data) => {
     if (err) {
       console.error(err);
     }
@@ -87,7 +87,7 @@ function updateReactionsFn(reaction, post) {
       ...dataToUpdate.slice(indexOfSelectedPost + 1),
     ];
     fs.writeFile(
-      "./data/test.json",
+      "./data/posts.json",
       JSON.stringify(updatedArray, null, 2),
       (err) => {
         if (err) {

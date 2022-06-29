@@ -4,14 +4,31 @@
     "content": "user input",
     "giphy": "",
     "created": "02/06/2022",
-    "reactions": [
-      {
+    "reactions": {
+      "0": {
         "love": 0,
         "like": 5,
         "dislike": 2
+      },
+      "like": null
+    },
+    "comments": [
+      {
+        "id": "1e1117wzl4ztf8it",
+        "content": "test",
+        "created": "2022-06-29T16:31:51.268Z"
+      },
+      {
+        "id": "1e1117xgl4ztfc06",
+        "content": "testing",
+        "created": "2022-06-29T16:31:55.781Z"
+      },
+      {
+        "id": "1e1117xml4ztfeic",
+        "content": "testing again",
+        "created": "2022-06-29T16:31:59.027Z"
       }
-    ],
-    "comments": []
+    ]
   },
   {
     "id": 2,
