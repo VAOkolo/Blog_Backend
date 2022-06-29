@@ -30,7 +30,7 @@ function readPosts(newPost) {
 
 // should change "test" for "posts" at given time
 function addNewComment(newComment, post) {
-  fs.readFile("../data/posts.json", (err, fileData) => {
+  fs.readFile("./data/test.json", (err, fileData) => {
     if (err) {
       console.log(err);
     }
@@ -52,8 +52,9 @@ function addNewComment(newComment, post) {
       },
       ...dataToUpdate.slice(indexOfSelectedPost + 1),
     ];
+    console.log("araaaaaaaaaaaaaaaaay", updatedArray);
     fs.writeFile(
-      "../data/posts.json",
+      "./data/test.json",
       JSON.stringify(updatedArray, null, 2),
       (err) => {
         if (err) {
@@ -65,7 +66,7 @@ function addNewComment(newComment, post) {
 }
 
 function updateReactions(reaction, post, amount) {
-  fs.readFile("../data/test.json", (err, data) => {
+  fs.readFile("./data/test.json", (err, data) => {
     if (err) {
       console.error(err);
     }
@@ -93,7 +94,7 @@ function updateReactions(reaction, post, amount) {
     ];
 
     fs.writeFile(
-      "../data/test.json",
+      "./data/test.json",
       JSON.stringify(updatedArray, null, 2),
       (err) => {
         if (err) {

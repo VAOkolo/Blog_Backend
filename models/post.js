@@ -23,15 +23,17 @@ class Post {
     return posts;
   }
 
-  static findById(){
+  static findById(id) {
+    const postSelected = selectedPost(Post.all, id);
 
+    return postSelected;
   }
-  
-  static create(content, giphy) {
+
+  static create(content, giphy = "") {
     let newPost = new Post({
       id: uniqid(),
       content,
-      giphy: [giphy],
+      giphy,
       created: new Date(),
       reactions: { love: 0, like: 0, dislike: 0 },
       comments: [],
@@ -40,16 +42,6 @@ class Post {
     writePosts(newPost);
 
     return newPost;
-  }
-
-  static newComment(content, post) {
-    const newComment = {
-      id: uniqid(),
-      content,
-      created: new Date(),
-    };
-    //afterwards change paths to posts.json
-    addNewComment(newComment);
   }
 
   // static updateReaction() {}

@@ -8,13 +8,17 @@ class Comment {
     this.created = created;
   }
 
-  create(content) {
+  static create(content, post) {
     let newComment = {
       id: uniqid(),
       content,
       created: new Date(),
     };
 
-    addNewComment(newComment);
+    addNewComment(newComment, post);
+
+    return newComment;
   }
 }
+
+module.exports = Comment;
