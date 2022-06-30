@@ -53,3 +53,7 @@ Below are the routes available for use with the right usage:
 - Cors
 - Uniqid
 - Jest and Supertest for testing API
+
+## Licence
+
+[MIT Licence](https://opensource.org/licenses/mit-license.php)

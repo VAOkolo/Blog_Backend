@@ -1,6 +1,6 @@
 const postsData = require("../data/posts.json");
 const Post = require("../models/post.js");
-const Comment = require("../models/comment.js");
+
 const uniqid = require("uniqid");
 jest.mock("uniqid");
 describe("Models", () => {
@@ -46,12 +46,5 @@ describe("Models", () => {
 
       expect(testError).toThrowError("Post not found");
     });
-
-    // it("should create a post", () => {
-    //   //   const newPostId = uniqid();
-    //   const newPost = Post.create(testNewPost);
-
-    //   expect(newPost).toEqual(testNewPost);
-    // });
   });
 });

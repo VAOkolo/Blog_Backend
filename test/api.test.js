@@ -26,22 +26,6 @@ describe("API server", () => {
     request(api).get("/posts/1").expect(200, done);
   });
 
-  // it("responds to post /posts/post with status 201", (done) => {
-  //   request(api)
-  //     .post("/posts/post")
-  //     .send({ content: "hey there", giphy: "" })
-  //     .set("Accept", /application\/json/)
-  //     .expect(201)
-  //     .expect(
-  //       {
-  //         id: "jskjs8js", //how do i test this? do i import the package then mock it?
-  //         content: "Hey there",
-  //         giphy: "",
-  //       },
-  //       done
-  //     );
-  // });
-  //this test will fail if anything changes in the post with id 1 at posts.json
   it("retrieves a post by id", (done) => {
     request(api)
       .get("/posts/1")
@@ -59,12 +43,6 @@ describe("API server", () => {
       );
   });
 
-  // console.log("API", api);
-
-  // it("responds with a status of 201 at /posts/1", (done) => {
-  //   request(api).post("/posts/1").expect(201).expect(testNewPost, done);
-  // });
-
   it("responds to get /posts/1/comments with status 200", (done) => {
     request(api).get("/posts/1/comments").expect(200, done);
   });
@@ -74,38 +52,6 @@ describe("API server", () => {
       .get("/posts/17af4l4zs5vim/comments/2hj8fx39csl5104ruk")
       .expect(200, done);
   });
-  // it("responds to post /posts/post with status 201", (done) => {
-  //   request(api)
-  //     .post("/posts/post")
-  //     .send({ content: "hey there", giphy: "" })
-  //     .set("Accept", /application\/json/)
-  //     .expect(201)
-  //     .expect(
-  //       {
-  //         id: "jskjs8js", //how do i test this? do i import the package then mock it?
-  //         content: "Hey there",
-  //         giphy: "",
-  //       },
-  //       done
-  //     );
-  // });
-
-  // it("responds to put /posts/1/reactions/like", (done) => {
-  //   request(api)
-  //     .get("/posts/1")
-  //     .expect(200)
-  //     .expect(
-  //       {
-  //         id: 1,
-  //         content: "user input",
-  //         giphy: "",
-  //         created: "02/06/2022",
-  //         reactions: [{ love: 0, like: 5, dislike: 2 }],
-  //         comments: [],
-  //       },
-  //       done
-  //     );
-  // });
 
   it("responds to a unknown post id with a 404", (done) => {
     request(api).get("/posts/42").expect(404).expect({}, done);
