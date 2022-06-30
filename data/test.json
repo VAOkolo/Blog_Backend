@@ -4,11 +4,13 @@
     "content": "user input",
     "giphy": "",
     "created": "02/06/2022",
-    "reactions": {
-      "love": 0,
-      "like": 5,
-      "dislike": 8
-    },
+    "reactions": [
+      {
+        "love": 0,
+        "like": 5,
+        "dislike": 2
+      }
+    ],
     "comments": []
   },
   {
@@ -16,11 +18,13 @@
     "content": "user input",
     "giphy": "",
     "created": "02/06/2022",
-    "reactions": {
-      "love": 0,
-      "like": 5,
-      "dislike": 14
-    },
+    "reactions": [
+      {
+        "love": 0,
+        "like": 5,
+        "dislike": 2
+      }
+    ],
     "comments": []
   },
   {
@@ -29,56 +33,30 @@
     "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "love": 32,
-      "like": 5,
-      "dislike": 2
+      "0": {
+        "love": 0,
+        "like": 5,
+        "dislike": 2
+      },
+      "love": null
     },
     "comments": [
       {
         "id": "001",
         "content": "user input",
         "created": "02/06/2022"
-      },
-      {
-        "id": "002",
-        "content": "user input",
-        "created": "02/06/2022"
       }
     ]
   },
   {
-    "id": "17bxcl4zkdxgc",
-    "content": "Add me, I'm new",
-    "giphy": "",
-    "created": "2022-06-29T12:18:53.723Z",
+    "id": "1e111ctsl50tsm48",
+    "giphy": "https://media1.giphy.com/media/ckXZb9KeenZXGlvGGd/200_s.gif",
+    "created": "2022-06-30T09:30:01.591Z",
     "reactions": {
       "love": 0,
       "like": 0,
       "dislike": 0
     },
     "comments": []
-  },
-  {
-    "id": "17404l4zkeh2y",
-    "content": "Add me, I'm new and I have a giphy",
-    "giphy": "some-url",
-    "created": "2022-06-29T12:19:19.161Z",
-    "reactions": {
-      "love": 20,
-      "like": 3,
-      "dislike": 6
-    },
-    "comments": [
-      {
-        "id": "17a0gl4zo4jm7",
-        "content": "Ok, let's see if this works",
-        "created": "2022-06-29T14:03:34.350Z"
-      },
-      {
-        "id": "17g20l4zo5488",
-        "content": "Ok, let's see if this work once more",
-        "created": "2022-06-29T14:04:01.063Z"
-      }
-    ]
   }
 ]

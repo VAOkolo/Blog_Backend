@@ -33,12 +33,9 @@
     "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "0": {
         "love": 0,
         "like": 5,
         "dislike": 2
-      },
-      "love": null
     },
     "comments": [
       {
@@ -47,5 +44,17 @@
         "created": "02/06/2022"
       }
     ]
+  },
+  {
+    "id": "1e111cxkl50u19rj",
+    "content": "Test post",
+    "giphy": "https://media1.giphy.com/media/l378BzHA5FwWFXVSg/200_s.gif",
+    "created": "2022-06-30T09:36:45.486Z",
+    "reactions": {
+      "love": 0,
+      "like": 3,
+      "dislike": 0
+    },
+    "comments": []
   }
 ]
