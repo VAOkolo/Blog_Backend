@@ -4,13 +4,11 @@
     "content": "user input",
     "giphy": "",
     "created": "02/06/2022",
-    "reactions": [
-      {
-        "love": 0,
-        "like": 5,
-        "dislike": 2
-      }
-    ],
+    "reactions": {
+      "love": 0,
+      "like": 5,
+      "dislike": 2
+    },
     "comments": []
   },
   {
@@ -33,9 +31,9 @@
     "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-        "love": 0,
-        "like": 5,
-        "dislike": 2
+      "love": 0,
+      "like": 5,
+      "dislike": 2
     },
     "comments": [
       {
@@ -64,10 +62,21 @@
     "created": "2022-06-29T15:56:34.893Z",
     "reactions": {
       "love": 0,
-      "like": 0,
+      "like": 1,
       "dislike": 0
     },
-    "comments": []
+    "comments": [
+      {
+        "id": "2hj8fx39csl5104ruk",
+        "content": "Testing it again on 30/06 at 13.27",
+        "created": "2022-06-30T12:27:26.587Z"
+      },
+      {
+        "id": "2hj8fx3zcl5105p5l",
+        "content": "Testing it again on 30/06 at 13.28",
+        "created": "2022-06-30T12:28:09.752Z"
+      }
+    ]
   },
   {
     "id": "17gfkl4zs8lg2",
@@ -530,5 +539,68 @@
         "created": "2022-06-29T21:31:44.604Z"
       }
     ]
+  },
+  {
+    "content": {
+      "content": "user input",
+      "giphy": "",
+      "created": "2022-06-30T13:53:34.845Z",
+      "reactions": {
+        "love": 0,
+        "like": 0,
+        "dislike": 0
+      },
+      "comments": []
+    },
+    "giphy": "",
+    "created": "2022-06-30T13:53:34.924Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
+  },
+  {
+    "content": {
+      "content": "user input",
+      "giphy": "",
+      "created": "2022-06-30T13:55:29.379Z",
+      "reactions": {
+        "love": 0,
+        "like": 0,
+        "dislike": 0
+      },
+      "comments": []
+    },
+    "giphy": "",
+    "created": "2022-06-30T13:55:29.422Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
+  },
+  {
+    "content": {
+      "content": "user input",
+      "giphy": "",
+      "created": "2022-06-30T13:55:35.056Z",
+      "reactions": {
+        "love": 0,
+        "like": 0,
+        "dislike": 0
+      },
+      "comments": []
+    },
+    "giphy": "",
+    "created": "2022-06-30T13:55:35.096Z",
+    "reactions": {
+      "love": 0,
+      "like": 0,
+      "dislike": 0
+    },
+    "comments": []
   }
 ]
