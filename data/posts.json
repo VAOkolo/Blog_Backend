@@ -5,37 +5,11 @@
     "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "love": 0,
+      "love": 4,
       "like": 5,
-      "dislike": 2
+      "dislike": 8
     },
-    "comments": [
-      {
-        "id": "1e111dtxl50y1qqg",
-        "content": "hey,leaving a comment",
-        "created": "2022-06-30T11:29:05.943Z"
-      },
-      {
-        "id": "1e111e2ol50yeeng",
-        "content": "testing it our",
-        "created": "2022-06-30T11:38:56.811Z"
-      },
-      {
-        "id": "1e111e47l50yg8bd",
-        "content": "okay",
-        "created": "2022-06-30T11:40:21.912Z"
-      },
-      {
-        "id": "1e111e4pl50yj7fj",
-        "content": "done.",
-        "created": "2022-06-30T11:42:40.734Z"
-      },
-      {
-        "id": "1e111e5al50ykbm4",
-        "content": "done\n",
-        "created": "2022-06-30T11:43:32.811Z"
-      }
-    ]
+    "comments": []
   },
   {
     "id": 2,
@@ -43,9 +17,9 @@
     "giphy": "",
     "created": "02/06/2022",
     "reactions": {
-      "love": 0,
-      "like": 9,
-      "dislike": 2
+      "love": 5,
+      "like": 13,
+      "dislike": 5
     },
     "comments": []
   },
@@ -68,46 +42,10 @@
     ]
   },
   {
-    "id": "1e111cxkl50u19rj",
-    "content": "Test post",
-    "giphy": "https://media1.giphy.com/media/l378BzHA5FwWFXVSg/200_s.gif",
-    "created": "2022-06-30T09:36:45.486Z",
-    "reactions": {
-      "love": 0,
-      "like": 3,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "1e111dmzl50wlno7",
-    "content": "serfdssffs",
-    "giphy": "https://media4.giphy.com/media/6lgLuIZ4OmDC/200.gif",
-    "created": "2022-06-30T10:48:35.862Z",
-    "reactions": {
-      "love": 0,
-      "like": 4,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "1e111dtjl50x3cm5",
-    "content": "testing",
-    "giphy": "https://media1.giphy.com/media/4pMX5rJ4PYAEM/200.gif",
-    "created": "2022-06-30T11:02:21.340Z",
-    "reactions": {
-      "love": 0,
-      "like": 0,
-      "dislike": 0
-    },
-    "comments": []
-  },
-  {
-    "id": "1e111e1zl50y5894",
-    "content": "asdadsadsadasd",
-    "giphy": "",
-    "created": "2022-06-30T11:31:48.615Z",
+    "id": "1e111r29l52efj0y",
+    "content": "Elliot after this week!🤯",
+    "giphy": "https://media4.giphy.com/media/pawSnuqgnqo5lz4niU/200_s.gif",
+    "created": "2022-07-01T11:55:29.169Z",
     "reactions": {
       "love": 0,
       "like": 0,

@@ -72,7 +72,7 @@ function updateReactionsFn(reaction, post) {
 
     const selectedP = selectedPost(dataToUpdate, post);
     const indexOfSelectedPost = dataToUpdate.indexOf(selectedP);
-
+    console.log(reaction);
     const updatedArray = [
       ...dataToUpdate.slice(0, indexOfSelectedPost),
       {
