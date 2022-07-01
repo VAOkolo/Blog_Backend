@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const data = require("../data/posts.json");
+
 const Post = require("../models/post");
 const Comment = require("../models/comment");
 
@@ -13,13 +13,16 @@ router.get("/", (req, res) => {
 
 //get specific post
 router.get("/:post", (req, res) => {
-  const {
-    params: { post },
-  } = req;
-
-  const selectedPost = Post.findById(post);
-
-  res.status(200).send(selectedPost);
+  try {
+    const {
+      params: { post },
+    } = req;
+    const selectedPost = Post.findById(post);
+    res.send(selectedPost);
+  } catch (err) {
+    console.log(err);
+    res.status(404).send("Not found");
+  }
 });
 
 //post new entry
@@ -40,22 +43,19 @@ router.get("/:post/comments", (req, res) => {
     params: { post },
   } = req;
 
-  const comments = Comment.getComment(post);
-  res.status(200).send(comments);
+  const comments = Comment.getComments(post);
+  res.send(comments);
 });
-//get specific comment - likely to turn into delete if used as stretch goal
-router.get("/:post/comments/:comment", (req, res) => {
-  const post = parseInt(req.params.post);
-  const comment = parseInt(req.params.comment);
-  // console.log(data[0].comments[0].id);
-  const selectedPost = data.filter((hostPost) => {
-    return hostPost.id == post;
-  });
 
-  const selectedComment = selectedPost[0].comments.filter((hostComment) => {
-    return hostComment.id == comment;
-  });
-  console.log(selectedComment);
+//get specific comment
+
+router.get("/:post/comments/:comment", (req, res) => {
+  const {
+    params: { post, comment },
+  } = req;
+
+  const selectedComment = Comment.getComment(post, comment);
+
   res.send(selectedComment);
 });
 //posting a comment
@@ -80,7 +80,7 @@ router.put("/:post/reactions/:reaction", (req, res) => {
 
   Post.updateReactions(reaction, post);
 
-  res.status(200).send("Succesfully updated!");
+  res.send("Succesfully updated!");
 });
 
 module.exports = router;

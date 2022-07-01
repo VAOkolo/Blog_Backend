@@ -10,7 +10,8 @@ class Comment {
   }
   static getComments(postId) {
     const { comments } = selectedPost(posts, postId);
-    return comments && comments;
+    const allComments = comments.map((comment) => new Comment(comment));
+    return allComments && allComments;
   }
 
   static getComment(postId, commentId) {
@@ -19,7 +20,7 @@ class Comment {
       (comment) => comment.id === commentId
     )[0];
 
-    return selectedComment;
+    return new Comment(selectedComment);
   }
 
   static create(content, post) {
@@ -31,7 +32,7 @@ class Comment {
 
     addNewComment(newComment, post);
 
-    return newComment;
+    return new Comment(newComment);
   }
 }
 
